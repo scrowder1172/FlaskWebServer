@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h2>Dashboard</h2>
+
+                <form action="{{ url_for('user_dashboard_route') }}" method="POST">
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px"
+                     src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <span class="font-weight-bold">{{ current_user.first_name }} {{ current_user.last_name }}</span>
+                <span class="text-black-50">{{ current_user.email }}</span>
+                <span> </span>
+            </div>
+        </div>
+
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                            {{ form.first_name.label(class_="labels") }}
+                        {{ form.first_name(class_="form-control") }}
+                    </div>
+                    <div class="col-md-6">
+                            {{ form.last_name.label(class_="labels") }}
+                        {{ form.last_name(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                            {{ form.email.label(class_="labels") }}
+                        {{ form.email(class_="form-control") }}
+                    </div>
+                    <div class="col-md-6">
+                            {{ form.phone.label(class_="labels") }}
+                        {{ form.phone(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                            {{ form.address.label(class_="labels") }}
+                        {{ form.address(class_="form-control") }}
+                    </div>
+                    <div class="col-md-12">
+                            {{ form.address2.label(class_="labels") }}
+                        {{ form.address2(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                            {{ form.city.label(class_="labels") }}
+                        {{ form.city(class_="form-control") }}
+                    </div>
+                    <div class="col-md-4">
+                            {{ form.state.label(class_="labels") }}
+                        {{ form.state(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                            {{ form.zip.label(class_="labels") }}
+                        {{ form.zip(class_="form-control") }}
+                    </div>
+                    <div class="col-md-6">
+                            {{ form.country.label(class_="labels") }}
+                        {{ form.country(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        {{ form.email_marketing_opt_in(class_="form-check-input me-2") }}
+                        {{ form.email_marketing_opt_in.label(class_="labels") }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.text_marketing_opt_it(class_="form-check-input me-2") }}
+                        {{ form.text_marketing_opt_it.label(class_="labels") }}
+                    </div>
+                </div>
+
+                        {{ form.csrf_token }}
+                <div class="mt-5 text-center">{{ form.submit(class_="btn btn-primary profile-button") }}</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="col-md-12">
+                    {{ form.bio.label(class_="labels") }}
+                        {{ form.bio(class_="form-control") }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </form>
+
+{% endblock %}
